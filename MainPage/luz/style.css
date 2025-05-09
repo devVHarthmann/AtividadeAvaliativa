@@ -1,0 +1,25 @@
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#on{
+    position: absolute;
+    visibility: hidden;
+    margin-right: 33px;
+    left: 0px;
+}
+#lampadas{
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
