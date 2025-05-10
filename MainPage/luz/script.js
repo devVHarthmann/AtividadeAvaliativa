@@ -1,4 +1,4 @@
-// Função responsável por apagar e acender a lâmpada
+// Função responsável por apagar, acender a lâmpada e computar os clicks
 let clicks = 0;
 function turn() {
     

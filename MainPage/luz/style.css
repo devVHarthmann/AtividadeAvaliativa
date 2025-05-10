@@ -7,17 +7,19 @@
     font-family: 'Minecraft', sans-serif;
     letter-spacing: 3px;
 }
-@font-face{
+/* Importação de fonte */
+@font-face {
     font-family: 'Minecraft';
     src: url('Minecraft.ttf') format('truetype');
 }
-body{
+
+body {
     width: 100vw;
     height: 100vh;
-    
 }
+
 /* Contador de clicks */
-#contador{
+#contador {
     height: 20vh;
     width: 100vw;
     display: flex;
@@ -26,7 +28,8 @@ body{
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.808);
 }
-#contClick{
+
+#contClick {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +47,6 @@ body{
     align-items: center;
     justify-content: center;
     position: fixed;
-
 }
 
 /* Estilização responsável por sincronizar as lâmpadas */
@@ -77,13 +79,44 @@ body{
 
 /* Responsividade */
 
-@media (max-width: 600px){
-    #princ{
+@media (max-width: 600px) {
+    #princ {
         flex-direction: column;
         gap: 20px;
     }
-    #contClick{
+
+    #contClick {
         width: 30vw;
     }
 
+    #on,
+    #pressure,
+    #off {
+        width: 250px;
+        height: 250px;
+    }
+
+    #lampadas {
+        width: 250px;
+    }
+
+    #plate {
+        height: 280px;
+    }
+}
+
+@media (max-height: 680px)and (max-width: 900px) {
+    #on,
+    #pressure,
+    #off {
+        width: 200px;
+        height: 200px;
+    }
+    #lampadas {
+        width: 200px;
+    }
+    #plate,
+    #lampadas {
+        height: 220px;
+    }
 }
