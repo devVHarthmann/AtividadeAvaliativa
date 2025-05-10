@@ -1,25 +1,89 @@
-*{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: 3px;
 }
-main{
+@font-face{
+    font-family: 'Minecraft';
+    src: url('Minecraft.ttf') format('truetype');
+}
+body{
     width: 100vw;
     height: 100vh;
+    
+}
+/* Contador de clicks */
+#contador{
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.808);
+}
+#contClick{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 6vh;
+    border: 4px solid;
+    padding-top: 8px;
+}
+
+/* Estilização do main  */
+#princ {
+    width: 100vw;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    position: fixed;
+
 }
-#on{
-    position: absolute;
-    visibility: hidden;
-    margin-right: 33px;
-    left: 0px;
-}
-#lampadas{
+
+/* Estilização responsável por sincronizar as lâmpadas */
+#lampadas {
     position: relative;
     width: 300px;
     height: 300px;
 }
 
+/* Estilização responsavel pela iluminação */
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.808);
+    pointer-events: none;
+}
+
+/* Alteração do cursor quando sobre a placa de pressão */
+#pressure {
+    cursor: url("img/steve.png"), auto;
+}
+
+/* Visibilidade e posição da lâmpada acesa */
+#on {
+    position: absolute;
+    visibility: hidden;
+    left: 0px;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px){
+    #princ{
+        flex-direction: column;
+        gap: 20px;
+    }
+    #contClick{
+        width: 30vw;
+    }
+
+}

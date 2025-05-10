@@ -9,18 +9,23 @@
 </head>
 
 <body>
-    <main>
+
+    <header id="contador"><h1>Contador</h1><div id="contClick"><h1 id="nClick">0</h1></div></header>
+    <!--Painel principal-->
+    <main id="princ">
+        
+        <!--Placa de pressão-->
+        <img id="pressure" onclick="turn()" src="img/plate.png" alt="" width="300px">
+        <!--Divisão para as lâmpadas-->
         <div id="lampadas">
+            <!--Imagens das lâmpadas-->
             <img id="off" src="img/lampMine.png" alt="">
             <img id="on" src="img/lampMineOn.png" alt="">
         </div>
-
-
-        <img id="pressure" onclick="turn()" src="img/plate.png" alt="">
-
+        
     </main>
-
-
+    <!--Overlay responsável pela ilumincação-->
+    <div id="overlay"></div>
     <script src="script.js"></script>
 </body>
 
