@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <main id="princ">
+        <div id="mostrarValor"><h1 id="show">R$ 0.00</h1></div>
+        <div id="trouxas">
+            <img src="img/trouxa1.png" alt="" id="t1">
+            <img src="img/trouxa2.png" alt="" id="t2" width="180px">
+        </div>
+        <div id="addValores">
+            <button onclick="addValue(0.05)" class="btnAdd" name="bt" id="add5">R$0.05</button>
+            <button onclick="addValue(0.10)" class="btnAdd" name="bt" id="add1" >R$0,10</button>
+            <button onclick="addValue(0.25)" class="btnAdd" name="bt" id="add2">R$0,25</button>
+            <button onclick="addValue(0.50)" class="btnAdd" name="bt" id="add3">R$0,50</button>
+            <button onclick="addValue(1)" class="btnAdd" name="bt" id="add4">R$1,00</button>
+            <button onclick="zerar()" class="btnAdd" id="zero">Esvaziar</button>
+            
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
