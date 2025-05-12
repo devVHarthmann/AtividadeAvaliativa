@@ -11,6 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 #trouxas {
@@ -21,10 +22,22 @@
     justify-content: center;
 }
 
-#t2 {
+#t2 {   
     position: absolute;
     visibility: hidden;
     left: 0px;
+}
+#t3 { 
+    position: absolute;
+    visibility: hidden;
+    left: 0px;
+    bottom: 0px;
+}
+#t4 {
+    position: absolute;
+    visibility: hidden;
+    left: 0px;
+    bottom: 0px;
 }
 #mostrarValor{
     width: 180px;
@@ -46,10 +59,7 @@
     background-color: #868686;
     box-shadow: 0px 0px 6px gray;
 }
-.btnAdd:hover{
-    transition: 0.5s;
-    background-color: rgba(0, 102, 255, 0.404);
-}
+
 #addValores{
     display: flex;
     align-items: center;
@@ -62,3 +72,31 @@
     background-color: rgb(43, 43, 43);
     pointer-events: none;
 }
+
+#add1:hover, #add2:hover, #add3:hover, #add4:hover, #add5:hover{
+    background-color: rgba(0, 102, 255, 0.404);
+    transition: 0.5s;
+}
+#inputSacar, #btnSacar{
+    width: 155px;
+    height: 40px;
+    transition: 0.5s;
+    font-family: 'Minecraft', sans-serif;
+    color: white;
+    text-shadow: black 1px 1px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 6px gray;
+}
+#inputSacar{
+    padding: 10px;
+    background-color: rgb(43, 43, 43);
+}
+#btnSacar{
+    background-color: #868686;
+}
+
+#inputSacar[type=number]::-webkit-outer-spin-button,
+  #inputSacar[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
