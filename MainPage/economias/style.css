@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #princ {
@@ -94,9 +96,52 @@
 #btnSacar{
     background-color: #868686;
 }
+#btnSacar:hover{
+    background-color: rgba(0, 102, 255, 0.404);
+}
 
 #inputSacar[type=number]::-webkit-outer-spin-button,
   #inputSacar[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+
+#coinBar{
+    width: 322px;
+    height: 64.4px;
+    border: 2px solid black;
+}
+#liBar{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.square{
+    width: 64.4px;
+    height: 64.4px;
+    border-right: 2px solid black ;
+}
+#s5{
+    border-right: 0px;
+}
+
+.nBar{
+    width: 54.4px;
+    height: 17px;
+    display: flex;
+    font-size: 14px;
+    justify-content: end;
+}
+
+.sqI{
+    width: 64.4px;
+    height: 47.4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.quantMoedas{
+    font-size: 11pt;
+    margin-top: 10px;
+}

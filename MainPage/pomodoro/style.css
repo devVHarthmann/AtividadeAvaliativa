@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#hd1 {
+    background-color: rgb(14, 14, 14);
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 500px;
+    transition: 0.5s;
+}
+
+#lp1 {
+    width: 100vw;
+    height: 80vh;
+    background-color: rgb(20, 20, 20);
+    transition: 0.5s;
+}
+
+#t1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30pt;
+    color: white;
+}
+
+.darklight {
+    width: 60px;
+    height: 32px;
+    background-color: rgb(20, 20, 20);
+    border-radius: 19px;
+    position: relative;
+    transition: background-color 0.6s ease;
+    padding: 4px;
+    
+}
+
+.darklight::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: left 0.6s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-left: 3px;
+}
+
+.darklight.active {
+    background: white;
+}
+
+.darklight.active::before {
+    left: 29px;
+    background-color: black;
+}
+
+#sphere {
+
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: aliceblue;
+    border-radius: 50%;
+}

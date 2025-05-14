@@ -23,11 +23,20 @@
             <button onclick="addValue(0.10)" class="btnAdd" name="bt" id="add1" >R$0,10</button>
             <button onclick="addValue(0.25)" class="btnAdd" name="bt" id="add2">R$0,25</button>
             <button onclick="addValue(0.50)" class="btnAdd" name="bt" id="add3">R$0,50</button>
-            <button onclick="addValue(49)" class="btnAdd" name="bt" id="add4">R$1,00</button>
+            <button onclick="addValue(1)" class="btnAdd" name="bt" id="add4">R$1,00</button>
             <button onclick="zerar()" class="btnAdd" id="zero">Esvaziar</button>
             <input id="inputSacar" type="number" placeholder="Insira um valor">
             <button onclick="sacar()" id="btnSacar">Sacar</button>
             
+        </div>
+        <div id="coinBar">
+            <li id="liBar">
+                <ul class="square" id="s1"><div class="sqI"><h1 class="quantMoedas">0.05</h1></div><h1 class="nBar" id="m1">0</h1></ul>
+                <ul class="square" id="s2"><div class="sqI"><h1 class="quantMoedas">0.10</h1></div><h1 class="nBar" id="m2">0</h1></ul>
+                <ul class="square" id="s3"><div class="sqI"><h1 class="quantMoedas">0.25</h1></div><h1 class="nBar" id="m3">0</h1></ul>
+                <ul class="square" id="s4"><div class="sqI"><h1 class="quantMoedas">0.50</h1></div><h1 class="nBar" id="m4">0</h1></ul>
+                <ul class="square" id="s5"><div class="sqI"><h1 class="quantMoedas">1.00</h1></div><h1 class="nBar" id="m5">0</h1></ul>
+            </li>
         </div>
 
     </main>
