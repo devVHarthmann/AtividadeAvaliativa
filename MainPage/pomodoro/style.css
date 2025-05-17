@@ -52,6 +52,7 @@ body {
     transition: background-color 0.6s ease;
     padding: 4px;
     margin-right: 40px;
+    cursor: pointer;
 }
 
 .darklight::before {
@@ -79,9 +80,16 @@ body {
 }
 
 #lbOpc {
-    width: 30%;
-    height: 10%;
+    width: 23%;
+    height: 12%;
     margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border-radius: 3px;
+    gap: 10px
 }
 
 #ct1 {
@@ -89,9 +97,9 @@ body {
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 6%;
+    gap: 2%;
 
 }
 
@@ -122,4 +130,73 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.8s;
+}
+
+.botao:hover {
+    transition: 0.8s;
+    background-color: rgba(20, 34, 3, 0.815);
+    cursor: pointer;
+}
+
+.botao:active {
+    transform: scale(1.4);
+}
+
+#stBtn {
+    width: 40px;
+    margin-left: 4px;
+}
+
+#psBtn {
+    width: 50px;
+    height: 40px;
+}
+
+#rfBtn {
+    width: 40px;
+}
+
+#opPausa {
+    width: 110px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.466);
+    height: 25px;
+    border-radius: 4px;
+    padding-top: 3px;
+}
+
+#foco {
+    background-color: rgba(0, 0, 0, 0.466);
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    border-radius: 4px;
+    padding-top: 3px;
+}
+
+#opPausa:hover,
+#foco:hover {
+    cursor: pointer;
+}
+
+@media (max-width:900px) {
+    #lbOpc {
+        flex-direction: column;
+    }
+    #foco {
+        height: 30px;
+    }
+    #opPausa{
+        height: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    #ctRlg {
+        font-size: 80pt;
+    }
 }

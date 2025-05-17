@@ -1,13 +1,15 @@
-const btnDl = document.getElementById('toggleBtn')
-const land = document.getElementById('lp1')
-const hd = document.getElementById('hd1')
-const t1 = document.getElementById('t1')
-const tB = document.getElementById('toggleBtn')
-const rlg = document.getElementById('ctRlg')
-const st = document.getElementById('start')
-const ps = document.getElementById('pausa')
-const rt = document.getElementById('reset')
-let pausa = true
+const btnDl = document.getElementById('toggleBtn');
+const land = document.getElementById('lp1');
+const hd = document.getElementById('hd1');
+const t1 = document.getElementById('t1');
+const tB = document.getElementById('toggleBtn');
+const rlg = document.getElementById('ctRlg');
+const st = document.getElementById('start');
+const ps = document.getElementById('pausa');
+const rt = document.getElementById('reset');
+let pausa = true;
+let tempo = 25;
+let pausaCurta = false;
 
 btnDl.addEventListener('click', () => {
     let bgEstiloAtual = window.getComputedStyle(land).backgroundColor
@@ -22,11 +24,12 @@ btnDl.addEventListener('click', () => {
         t1.style.color = 'rgb(19, 16, 16)'
         document.body.style.backgroundColor = 'white'
         rlg.style.color = 'rgb(19, 16, 16)'
-        
-        st.style.backgroundColor = 'rgb(19, 16, 16)'
-        ps.style.backgroundColor = 'rgb(19, 16, 16)'
-        rt.style.backgroundColor = 'rgb(19, 16, 16)'
-        
+
+        st.style.backgroundColor = 'rgb(180, 153, 153)'
+        ps.style.backgroundColor = 'rgb(180, 153, 153)'
+        rt.style.backgroundColor = 'rgb(180, 153, 153)'
+        document.getElementById('lbOpc').style.color = 'rgb(19, 16, 16)'
+
     } else {
         land.style.backgroundColor = 'rgb(20, 20, 20)'
         hd.style.backgroundColor = ''
@@ -36,17 +39,20 @@ btnDl.addEventListener('click', () => {
         st.style.backgroundColor = 'rgb(147, 255, 46)'
         ps.style.backgroundColor = 'rgb(147, 255, 46)'
         rt.style.backgroundColor = 'rgb(147, 255, 46)'
-
+        document.getElementById('lbOpc').style.color = 'white'
 
     }
 })
 
 document.getElementById('start').addEventListener('click', () => {
-    let duracao = 25 * 60;
-    display = document.getElementById('ctRlg')
-    document.getElementById('start').style.pointerEvents = 'none'
+    let duracao = tempo * 60;
+    display = document.getElementById('ctRlg');
+    document.getElementById('start').style.pointerEvents = 'none';
     pausa = false;
-    cronometro(duracao, display)
+    pausaCurta = false;
+    cronometro(duracao, display);
+    const soundPlay = new Audio('sound/start.mp3')
+    soundPlay.play()
 })
 
 const cronometro = (duracao, display) => {
@@ -54,26 +60,46 @@ const cronometro = (duracao, display) => {
     let minutos, segundos;
 
     let intervalo = setInterval(() => {
-        if(!pausa){minutos = Math.floor(cronometro / 60);
-        segundos = Math.floor(cronometro % 60);
+        if (!pausa) {
+            if (!pausaCurta) {
+                minutos = Math.floor(cronometro / 60);
+                segundos = Math.floor(cronometro % 60);
 
-        minutos = minutos < 10 ? '0' + minutos : minutos;
-        segundos = segundos < 10 ? '0' + segundos : segundos;
+                minutos = minutos < 10 ? '0' + minutos : minutos;
+                segundos = segundos < 10 ? '0' + segundos : segundos;
 
-        display.innerHTML = `${minutos}:${segundos}`
-        cronometro -= 1;
+                display.innerHTML = `${minutos}:${segundos}`
+                cronometro -= 1;
 
-        if (cronometro < 0) {
-            clearInterval(intervalo)
-            document.getElementById('start').style.pointerEvents = 'all'
-        }}
+                if (cronometro < 0) {
+                    clearInterval(intervalo)
+                    document.getElementById('start').style.pointerEvents = 'all'
+                }
+            } else {
+                clearInterval(intervalo)
+                document.getElementById('start').style.pointerEvents = 'all'
+            }
+        }
     }, 1000);
 }
 
 document.getElementById('pausa').addEventListener('click', () => {
     pausa = pausa == false ? true : false;
+    const soundPause = new Audio('sound/pause.mp3')
+    soundPause.play()
 })
 
 document.getElementById('reset').addEventListener('click', () => {
     window.location.reload()
+})
+
+document.getElementById('opPausa').addEventListener('click', () => {
+    pausaCurta = true;
+    rlg.innerHTML = '05:00'
+    tempo = 5
+})
+document.getElementById('foco').addEventListener('click', () => {
+    pausaCurta = true;
+    rlg.innerHTML = '25:00'
+    tempo = 25
 })
