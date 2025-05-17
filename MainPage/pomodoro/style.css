@@ -199,4 +199,7 @@ body {
     #ctRlg {
         font-size: 80pt;
     }
+    .botao{
+        width: 100px;
+    }
 }

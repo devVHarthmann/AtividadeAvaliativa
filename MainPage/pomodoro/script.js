@@ -7,6 +7,7 @@ const rlg = document.getElementById('ctRlg');
 const st = document.getElementById('start');
 const ps = document.getElementById('pausa');
 const rt = document.getElementById('reset');
+let reset = false;
 
 let pausa = true;
 let tempo = 25;
@@ -51,6 +52,7 @@ document.getElementById('start').addEventListener('click', () => {
     document.getElementById('start').style.pointerEvents = 'none';
     pausa = false;
     pausaCurta = false;
+    reset = false;
     cronometro(duracao, display);
     const soundPlay = new Audio('sound/start.mp3')
     soundPlay.play()
@@ -61,30 +63,38 @@ const cronometro = (duracao, display) => {
     let minutos, segundos;
 
     let intervalo = setInterval(() => {
-        let sFim = new Audio ('sound/fim.mp3')
-        let cPass = new Audio ('sound/clockPass.mp3')
-        if (!pausa) {
-            if (!pausaCurta) {
-                minutos = Math.floor(cronometro / 60);
-                segundos = Math.floor(cronometro % 60);
+        let sFim = new Audio('sound/fim.mp3')
+        let cPass = new Audio('sound/clockPass.mp3')
+        if (!reset) {
+            if (!pausa) {
+                if (!pausaCurta) {
+                    minutos = Math.floor(cronometro / 60);
+                    segundos = Math.floor(cronometro % 60);
 
-                minutos = minutos < 10 ? '0' + minutos : minutos;
-                segundos = segundos < 10 ? '0' + segundos : segundos;
-                display.innerHTML = `${minutos}:${segundos}`
-                cronometro -= 1;
-                if(cronometro > 1){
-                    cPass.play()
-                }
+                    minutos = minutos < 10 ? '0' + minutos : minutos;
+                    segundos = segundos < 10 ? '0' + segundos : segundos;
+                    display.innerHTML = `${minutos}:${segundos}`
+                    cronometro -= 1;
+                    if (cronometro > 1) {
+                        cPass.play()
+                    }
 
-                if (cronometro < 0) {
-                    sFim.play()
+                    if (cronometro < 0) {
+                        sFim.play()
+                        clearInterval(intervalo)
+                        document.getElementById('start').style.pointerEvents = 'all'
+                    }
+                } else {
                     clearInterval(intervalo)
                     document.getElementById('start').style.pointerEvents = 'all'
                 }
-            } else {
-                clearInterval(intervalo) 
-                document.getElementById('start').style.pointerEvents = 'all'
             }
+        } else {
+            clearInterval(intervalo);
+            tempo = 25;
+            document.getElementById('start').style.pointerEvents = 'all'
+            rlg.innerHTML = tempo > 5 ? `${tempo}:00` : '05:00'
+
         }
     }, 1000);
 }
@@ -93,10 +103,19 @@ document.getElementById('pausa').addEventListener('click', () => {
     pausa = pausa == false ? true : false;
     const soundPause = new Audio('sound/pause.mp3')
     soundPause.play()
+    if(pausa == true){
+        st.style.backgroundColor = 'rgba(0, 0, 0, 0.56)'
+    } else{
+        if(lp1.style.backgroundColor == 'white'){
+            st.style.backgroundColor = 'rgb(180, 153, 153)'
+        } else{
+            st.style.backgroundColor = 'rgb(147, 255, 46)'
+        }
+    }
 })
 
 document.getElementById('reset').addEventListener('click', () => {
-    window.location.reload()
+    reset = true;
 })
 
 document.getElementById('opPausa').addEventListener('click', () => {
