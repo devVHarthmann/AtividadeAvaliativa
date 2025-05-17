@@ -7,6 +7,7 @@ const rlg = document.getElementById('ctRlg');
 const st = document.getElementById('start');
 const ps = document.getElementById('pausa');
 const rt = document.getElementById('reset');
+
 let pausa = true;
 let tempo = 25;
 let pausaCurta = false;
@@ -60,6 +61,8 @@ const cronometro = (duracao, display) => {
     let minutos, segundos;
 
     let intervalo = setInterval(() => {
+        let sFim = new Audio ('sound/fim.mp3')
+        let cPass = new Audio ('sound/clockPass.mp3')
         if (!pausa) {
             if (!pausaCurta) {
                 minutos = Math.floor(cronometro / 60);
@@ -67,16 +70,19 @@ const cronometro = (duracao, display) => {
 
                 minutos = minutos < 10 ? '0' + minutos : minutos;
                 segundos = segundos < 10 ? '0' + segundos : segundos;
-
                 display.innerHTML = `${minutos}:${segundos}`
                 cronometro -= 1;
+                if(cronometro > 1){
+                    cPass.play()
+                }
 
                 if (cronometro < 0) {
+                    sFim.play()
                     clearInterval(intervalo)
                     document.getElementById('start').style.pointerEvents = 'all'
                 }
             } else {
-                clearInterval(intervalo)
+                clearInterval(intervalo) 
                 document.getElementById('start').style.pointerEvents = 'all'
             }
         }
