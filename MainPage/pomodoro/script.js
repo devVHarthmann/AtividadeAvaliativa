@@ -49,7 +49,8 @@ btnDl.addEventListener('click', () => {
 document.getElementById('start').addEventListener('click', () => {
     let duracao = tempo * 60;
     display = document.getElementById('ctRlg');
-    document.getElementById('start').style.pointerEvents = 'none';
+    st.style.pointerEvents = 'none';
+    st.style.opacity = '0.4'
     pausa = false;
     pausaCurta = false;
     reset = false;
@@ -82,6 +83,7 @@ const cronometro = (duracao, display) => {
                     if (cronometro < 0) {
                         sFim.play()
                         clearInterval(intervalo)
+                        st.style.opacity = '1'
                         document.getElementById('start').style.pointerEvents = 'all'
                     }
                 } else {
@@ -103,19 +105,16 @@ document.getElementById('pausa').addEventListener('click', () => {
     pausa = pausa == false ? true : false;
     const soundPause = new Audio('sound/pause.mp3')
     soundPause.play()
-    if(pausa == true){
-        st.style.backgroundColor = 'rgba(0, 0, 0, 0.56)'
-    } else{
-        if(lp1.style.backgroundColor == 'white'){
-            st.style.backgroundColor = 'rgb(180, 153, 153)'
-        } else{
-            st.style.backgroundColor = 'rgb(147, 255, 46)'
-        }
-    }
 })
 
 document.getElementById('reset').addEventListener('click', () => {
     reset = true;
+    st.style.opacity = '1'
+    if (lp1.style.backgroundColor == 'white') {
+        st.style.backgroundColor = 'rgb(180, 153, 153)'
+    } else {
+        st.style.backgroundColor = 'rgb(147, 255, 46)'
+    }
 })
 
 document.getElementById('opPausa').addEventListener('click', () => {
@@ -127,4 +126,40 @@ document.getElementById('foco').addEventListener('click', () => {
     pausaCurta = true;
     rlg.innerHTML = '25:00'
     tempo = 25
+})
+
+
+
+st.addEventListener('mouseover', () => {
+    st.style.backgroundColor = 'rgba(37, 30, 30, 0.57)'
+})
+
+st.addEventListener('mouseout', () => {
+    if (lp1.style.backgroundColor == 'white') {
+        st.style.backgroundColor = 'rgb(180, 153, 153)'
+    } else {
+        st.style.backgroundColor = 'rgb(147, 255, 46)'
+    }
+})
+ps.addEventListener('mouseover', () => {
+    ps.style.backgroundColor = 'rgba(37, 30, 30, 0.57)'
+})
+
+ps.addEventListener('mouseout', () => {
+    if (lp1.style.backgroundColor == 'white') {
+        ps.style.backgroundColor = 'rgb(180, 153, 153)'
+    } else {
+        ps.style.backgroundColor = 'rgb(147, 255, 46)'
+    }
+})
+rt.addEventListener('mouseover', () => {
+    rt.style.backgroundColor = 'rgba(37, 30, 30, 0.57)'
+})
+
+rt.addEventListener('mouseout', () => {
+    if (lp1.style.backgroundColor == 'white') {
+        rt.style.backgroundColor = 'rgb(180, 153, 153)'
+    } else {
+        rt.style.backgroundColor = 'rgb(147, 255, 46)'
+    }
 })

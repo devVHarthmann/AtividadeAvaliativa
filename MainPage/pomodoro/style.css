@@ -140,7 +140,7 @@ body {
 }
 
 .botao:active {
-    transform: scale(1.4);
+    transform: scale(1.1);
 }
 
 #stBtn {
@@ -157,49 +157,72 @@ body {
     width: 40px;
 }
 
-#opPausa {
-    width: 110px;
-    min-width: 100px;
+#opPausa, #foco {
+    width: 115px;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.466);
-    height: 25px;
+    height: 30px;
     border-radius: 4px;
-    padding-top: 3px;
+    font-weight: 600;
 }
 
-#foco {
-    background-color: rgba(0, 0, 0, 0.466);
-    width: 110px;
-    display: flex;
-    justify-content: center;
-    height: 25px;
-    border-radius: 4px;
-    padding-top: 3px;
-}
 
 #opPausa:hover,
 #foco:hover {
     cursor: pointer;
 }
 
+h2{
+    font-size: 12pt;
+}
+
 @media (max-width:900px) {
     #lbOpc {
         flex-direction: column;
+        width: 130px;
     }
-    #foco {
+
+    #foco, #opPausa {
         height: 30px;
+        width: 130px;
     }
-    #opPausa{
-        height: 30px;
-    }
+
 }
 
 @media (max-width: 650px) {
     #ctRlg {
         font-size: 80pt;
     }
-    .botao{
+
+    .botao {
         width: 100px;
+    }
+}
+
+@media (max-width: 370px) {
+    #hd1{
+        height: 20vh;
+    }
+    #lp1{
+        height: 80vh;
+    }
+    #ct1{
+        margin-bottom: 10vh;
+    }
+    .botao{
+        height: 60px;
+        padding: 10px;
+    }
+    #ctOpc{
+        height: 12%;
+    }
+    #ctRlg{
+        font-size: 70pt;
+        height: 30%;
+    }
+    #t1{
+        font-size: 28pt;
     }
 }
